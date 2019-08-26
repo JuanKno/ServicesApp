@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">COC</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_login">Iniciar Sesión</string>
+    <string name="text_remember_password">¿Olvidaste tu contraseña?</string>
+    <string name="text_go_login">Regresar a Iniciar Sesión</string>
+    <string name="edit_text_documento" >Número de documento</string>
+</resources>
