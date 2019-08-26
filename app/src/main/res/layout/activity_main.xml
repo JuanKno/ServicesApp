@@ -23,7 +23,7 @@
         android:id="@+id/editTextEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
@@ -55,21 +55,21 @@
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="346dp"
-        android:layout_height="46dp"
+        android:layout_width="352dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="64dp"
         android:background="@color/colorAzul"
         android:backgroundTint="@android:color/white"
         android:text="@string/btn_login"
         android:textColor="@color/colorAzul"
         app:layout_constraintEnd_toEndOf="@+id/editTextDocumento"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/editTextDocumento"
-        tools:layout_editor_absoluteY="394dp" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDocumento" />
 
     <TextView
         android:id="@+id/textViewGoLogin"
         android:layout_width="0dp"
-        android:layout_height="41dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
