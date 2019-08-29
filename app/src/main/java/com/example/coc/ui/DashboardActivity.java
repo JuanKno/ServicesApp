@@ -3,6 +3,8 @@ package com.example.coc.ui;
 import android.os.Bundle;
 
 import com.example.coc.R;
+import com.example.coc.common.Constantes;
+import com.example.coc.common.SharedPreferencesManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import androidx.annotation.NonNull;
 
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DashboardActivity extends AppCompatActivity {
     private TextView mTextMessage;
@@ -41,6 +44,8 @@ public class DashboardActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
     }
 
 }

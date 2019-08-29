@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.coc.R;
+import com.example.coc.common.Constantes;
+import com.example.coc.common.SharedPreferencesManager;
 import com.example.coc.retrofit.ApiClient;
 import com.example.coc.retrofit.ApiService;
 import com.example.coc.retrofit.Request.RequestLogin;
@@ -88,6 +90,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     if (response.isSuccessful()) {
                         Toast.makeText(MainActivity.this, "Sesion Iniciada correctamente.", Toast.LENGTH_SHORT).show();
+
+                        SharedPreferencesManager.setSomeStringValue(Constantes.PREF_TOKEN, response.body().getToken());
+                        SharedPreferencesManager.setSomeStringValue(Constantes.PREF_NAME, response.body().getName());
+                        SharedPreferencesManager.setSomeStringValue(Constantes.PREF_EMAIL, response.body().getEmail());
+                        SharedPreferencesManager.setSomeStringValue(Constantes.PREF_PHOTO, response.body().getFoto());
+
+
                         Intent i = new Intent(MainActivity.this, DashboardActivity.class);
                         startActivity(i);
                         finish();
