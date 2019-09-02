@@ -10,4 +10,10 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_prueba">PruebaActivity</string>
+    <string name="toolbar_coc_home">Inicio</string>
+    <string name="text_view_toolbar_coc_home" />
+    <string name="Inicio">text_view_toolbar_title_home</string>
+    <string name="text_view_toolbar_title_home">Inicio</string>
+    <string name="text_view_toolbar_home">Inicio</string>
+    <string name="text_view_title_home">Inicio</string>
 </resources>
