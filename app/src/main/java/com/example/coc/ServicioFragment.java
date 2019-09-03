@@ -11,10 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.coc.retrofit.AuthApiClient;
+import com.example.coc.retrofit.AuthApiService;
 import com.example.coc.retrofit.Response.Servicio;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ServicioFragment extends Fragment {
@@ -26,6 +33,8 @@ public class ServicioFragment extends Fragment {
     RecyclerView recyclerView;
     MyServicioRecyclerViewAdapter adapter;
     List<Servicio> serviceList;
+    AuthApiService authApiService;
+    AuthApiClient authApiClient;
 
 
     /**
@@ -68,16 +77,45 @@ public class ServicioFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
+            retrofitInit();
 
             loadServiceData();
         }
         return view;
     }
 
+    private void retrofitInit() {
+        authApiClient = AuthApiClient.getInstance();
+        authApiService = authApiClient.getAuthApiService();
+    }
+
     private void loadServiceData() {
 
-        adapter = new MyServicioRecyclerViewAdapter(getActivity(), serviceList);
-        recyclerView.setAdapter(adapter);
+        Call<List<Servicio>> call = authApiService.getAllServices();
+        call.enqueue(new Callback<List<Servicio>>() {
+            @Override
+            public void onResponse(Call<List<Servicio>> call, Response<List<Servicio>> response) {
+            
+                if (response.isSuccessful()){
+
+                    serviceList = response.body();
+                    adapter = new MyServicioRecyclerViewAdapter(getActivity(), serviceList);
+                    recyclerView.setAdapter(adapter);
+                    
+                }else {
+                    Toast.makeText(getActivity(), "Ha ocurrido un error inesperado", Toast.LENGTH_SHORT).show();
+                }
+           
+            }
+
+            @Override
+            public void onFailure(Call<List<Servicio>> call, Throwable t) {
+                Toast.makeText(getActivity(), "Error en la conexión.", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
 
 

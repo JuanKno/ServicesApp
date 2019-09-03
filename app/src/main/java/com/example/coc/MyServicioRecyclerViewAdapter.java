@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.example.coc.retrofit.Response.Servicio;
 
@@ -37,9 +38,12 @@ public class MyServicioRecyclerViewAdapter extends RecyclerView.Adapter<MyServic
         holder.tvNombreServicio.setText(holder.mItem.getNombreServicio());
         holder.tvDescripcion.setText(holder.mItem.getDescripcion());
 
-        //  if (holder.mItem.getFotoInicio().equals("")){
-        //    Glide.with("https://coc-sas.000webhostapp.com/api/")
-        //  }
+        String fotoInicio = holder.mItem.getFotoInicio();
+
+        if (!fotoInicio.equals("")) {
+            Glide.with(ctx).load("https://coc-sas.000webhostapp.com/api/imagen/" + fotoInicio)
+                    .into(holder.ivFotoInicio);
+        }
 
 
     }

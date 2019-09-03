@@ -3,6 +3,7 @@ package com.example.coc.ui;
 import android.os.Bundle;
 
 import com.example.coc.R;
+import com.example.coc.ServicioFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +43,11 @@ public class DashboardActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentContainer, new ServicioFragment())
+                .commit();
 
 
     }
