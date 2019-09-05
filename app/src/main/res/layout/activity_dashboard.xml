@@ -9,7 +9,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragmentContainer"
+        android:id="@+id/containerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -31,9 +31,7 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 tools:layout_editor_absoluteX="7dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+
 
                     <ImageView
                         android:id="@+id/imageViewToolbarPhoto"
@@ -59,25 +57,26 @@
                         app:layout_constraintStart_toEndOf="@+id/imageViewToolbarPhoto"
                         app:layout_constraintTop_toTopOf="@+id/imageViewToolbarPhoto" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             </androidx.appcompat.widget.Toolbar>
 
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/nav_view"
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:background="?android:attr/windowBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:menu="@menu/bottom_nav_menu" />
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout2">
+
+        </FrameLayout>
+
+
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -96,9 +95,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/ic_add_white_24dp" />
 
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
