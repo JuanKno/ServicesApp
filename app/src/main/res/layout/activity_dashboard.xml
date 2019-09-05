@@ -25,38 +25,36 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="wrap_content"
                 android:background="@android:color/white"
                 app:layout_constraintTop_toTopOf="@+id/appBarLayout2"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 tools:layout_editor_absoluteX="7dp">
 
 
+                <ImageView
+                    android:id="@+id/imageViewToolbarPhoto"
+                    android:layout_width="53dp"
+                    android:layout_height="45dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_account_circle_black_24dp" />
 
-                    <ImageView
-                        android:id="@+id/imageViewToolbarPhoto"
-                        android:layout_width="53dp"
-                        android:layout_height="45dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_account_circle_black_24dp" />
-
-                    <TextView
-                        android:id="@+id/textViewToolbar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:text="@string/text_view_title_home"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageViewToolbarPhoto"
-                        app:layout_constraintStart_toEndOf="@+id/imageViewToolbarPhoto"
-                        app:layout_constraintTop_toTopOf="@+id/imageViewToolbarPhoto" />
-
+                <TextView
+                    android:id="@+id/textViewToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/text_view_title_home"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageViewToolbarPhoto"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewToolbarPhoto"
+                    app:layout_constraintTop_toTopOf="@+id/imageViewToolbarPhoto" />
 
 
             </androidx.appcompat.widget.Toolbar>
