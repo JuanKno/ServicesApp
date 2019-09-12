@@ -2,26 +2,21 @@ package com.example.coc;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
-
-import com.example.coc.retrofit.AuthApiClient;
-import com.example.coc.retrofit.AuthApiService;
+import com.example.coc.data.ServiceViewModel;
 import com.example.coc.retrofit.Response.Servicio;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class ServicioFragment extends Fragment {
@@ -33,8 +28,7 @@ public class ServicioFragment extends Fragment {
     RecyclerView recyclerView;
     MyServicioRecyclerViewAdapter adapter;
     List<Servicio> serviceList;
-    AuthApiService authApiService;
-    AuthApiClient authApiClient;
+    ServiceViewModel serviceViewModel;
 
 
     /**
@@ -58,6 +52,9 @@ public class ServicioFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        serviceViewModel = ViewModelProviders.of(getActivity())
+                .get(ServiceViewModel.class);
+
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -77,44 +74,27 @@ public class ServicioFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            retrofitInit();
+
+            adapter = new MyServicioRecyclerViewAdapter(getActivity(), serviceList);
+            recyclerView.setAdapter(adapter);
+
 
             loadServiceData();
         }
         return view;
     }
 
-    private void retrofitInit() {
-        authApiClient = AuthApiClient.getInstance();
-        authApiService = authApiClient.getAuthApiService();
-    }
 
     private void loadServiceData() {
 
-        Call<List<Servicio>> call = authApiService.getAllServices();
-        call.enqueue(new Callback<List<Servicio>>() {
+        serviceViewModel.getServicios().observe(getActivity(), new Observer<List<Servicio>>() {
             @Override
-            public void onResponse(Call<List<Servicio>> call, Response<List<Servicio>> response) {
-            
-                if (response.isSuccessful()){
-
-                    serviceList = response.body();
-                    adapter = new MyServicioRecyclerViewAdapter(getActivity(), serviceList);
-                    recyclerView.setAdapter(adapter);
-                    
-                }else {
-                    Toast.makeText(getActivity(), "Ha ocurrido un error inesperado", Toast.LENGTH_SHORT).show();
-                }
-           
-            }
-
-            @Override
-            public void onFailure(Call<List<Servicio>> call, Throwable t) {
-                Toast.makeText(getActivity(), "Error en la conexión.", Toast.LENGTH_SHORT).show();
+            public void onChanged(List<Servicio> servicios) {
+                serviceList = servicios;
+                adapter.setData(serviceList);
 
             }
         });
-
 
     }
 

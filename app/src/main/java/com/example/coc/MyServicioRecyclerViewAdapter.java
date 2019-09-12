@@ -1,14 +1,13 @@
 package com.example.coc;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.coc.retrofit.Response.Servicio;
@@ -19,7 +18,7 @@ import java.util.List;
 public class MyServicioRecyclerViewAdapter extends RecyclerView.Adapter<MyServicioRecyclerViewAdapter.ViewHolder> {
 
     private Context ctx;
-    private final List<Servicio> mValues;
+    private List<Servicio> mValues;
 
     public MyServicioRecyclerViewAdapter(Context contexto, List<Servicio> items) {
         mValues = items;
@@ -35,25 +34,40 @@ public class MyServicioRecyclerViewAdapter extends RecyclerView.Adapter<MyServic
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.tvNombreServicio.setText(holder.mItem.getNombreServicio());
-        holder.tvDescripcion.setText(holder.mItem.getDescripcion());
+        if (mValues != null) {
+            holder.mItem = mValues.get(position);
+            holder.tvNombreServicio.setText(holder.mItem.getNombreServicio());
+            holder.tvDescripcion.setText(holder.mItem.getDescripcion());
 
-        String fotoInicio = holder.mItem.getFotoInicio();
+            String fotoInicio = holder.mItem.getFotoInicio();
 
-        if (!fotoInicio.equals("")) {
-            Glide.with(ctx).load("https://coc-sas.000webhostapp.com/api/imagen/" + fotoInicio)
-                    .into(holder.ivFotoInicio);
+            if (!fotoInicio.equals("")) {
+                Glide.with(ctx).load("https://coc-sas.000webhostapp.com/api/imagen/" + fotoInicio)
+                        .into(holder.ivFotoInicio);
+
+
+            }
 
 
         }
+    }
+
+    public void setData(List<Servicio> servicioList) {
+
+        this.mValues = servicioList;
+        notifyDataSetChanged();
 
 
     }
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        if (mValues != null) {
+            return mValues.size();
+        } else {
+            return 0;
+
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -78,3 +92,4 @@ public class MyServicioRecyclerViewAdapter extends RecyclerView.Adapter<MyServic
         }
     }
 }
+
