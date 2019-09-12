@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_new_service_button"
+        android:text="Guardar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewclose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewclose"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <ImageView
+        android:id="@+id/imageViewclose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_close_blue_24dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="407dp"
+        android:layout_height="658dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+            android:id="@+id/tvNombreServicio"
+            android:layout_width="141dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingTop="15dp"
+            android:text="Nombre del servicio"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etNombreServicio"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/tvDescripcion"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp"
+                android:text="Descripción"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDescripcion"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/tvSerialEquipo"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp"
+                android:text="Serial del equipo"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etSerialEquipo"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+
+            <TextView
+                android:id="@+id/tvHorometro"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp"
+                android:text="Horometro"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edHorometro"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+            <TextView
+                android:id="@+id/tvKilometraje"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp"
+                android:text="Kilometraje"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etKilometraje"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/tvNombrePlanta"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp"
+                android:text="Nombre de Planta"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/tetNombrePlanta"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/tvFechaEntrada"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp"
+                android:text="Fecha de Entrada"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etFechaEntrada"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+
+            <TextView
+                android:id="@+id/tvFechaSalida"
+                android:layout_width="141dp"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:paddingTop="15dp"
+                android:text="Fecha de Salida"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edFechaSalida"
+                android:layout_width="397dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:inputType="textAutoComplete"
+                android:padding="10dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
