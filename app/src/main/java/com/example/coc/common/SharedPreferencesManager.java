@@ -10,20 +10,20 @@ public class SharedPreferencesManager {
     private SharedPreferencesManager() {
     }
 
-    private static SharedPreferences geSharedPreferences() {
+    private static SharedPreferences getSharedPreferences() {
 
         return MyApp.geContext().getSharedPreferences(APP_SETTINGS_FILE, Context.MODE_PRIVATE);
 
     }
 
     public static void setSomeStringValue(String dataLabel, String dataValue) {
-        SharedPreferences.Editor editor = geSharedPreferences().edit();
+        SharedPreferences.Editor editor = getSharedPreferences().edit();
         editor.putString(dataLabel, dataValue);
         editor.commit();
 
     }
 
     public static String getSomeStringValue(String dataLabel) {
-        return geSharedPreferences().getString(dataLabel, null);
+        return getSharedPreferences().getString(dataLabel, null);
     }
 }
