@@ -5,4 +5,6 @@
     <color name="colorAccent">@color/colorAzulDark</color>
     <color name="colorAzul">#0F7EDD</color>
     <color name="colorAzulDark">#0E406B</color>
+    <color name="colorGrisInput">#E0E0E0</color>
+    <color name="colorTextView">#616161</color>
 </resources>

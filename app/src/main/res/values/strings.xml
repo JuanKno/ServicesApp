@@ -16,4 +16,5 @@
     <string name="text_view_toolbar_title_home">Inicio</string>
     <string name="text_view_toolbar_home">Inicio</string>
     <string name="text_view_title_home">Inicio</string>
+    <string name="new_service_name" >Ingrese el nombre del servicio</string>
 </resources>

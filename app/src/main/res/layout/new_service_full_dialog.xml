@@ -28,192 +28,300 @@
         android:id="@+id/imageViewclose"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_close_blue_24dp" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="407dp"
-        android:layout_height="658dp"
+        android:layout_width="423dp"
+        android:layout_height="635dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973">
+        app:layout_constraintTop_toBottomOf="@+id/imageViewclose"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <TextView
-            android:id="@+id/tvNombreServicio"
-            android:layout_width="141dp"
-            android:layout_height="match_parent"
-            android:paddingLeft="5dp"
-            android:paddingTop="15dp"
-            android:text="Nombre del servicio"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                android:id="@+id/tvNombreServicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Nombre del servicio"
+                android:textColor="@color/colorTextView"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
 
             <EditText
-                android:id="@+id/etNombreServicio"
-                android:layout_width="397dp"
+                android:id="@+id/nameService"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
+                android:layout_margin="10dp"
+                android:background="@color/colorGrisInput"
                 android:inputType="textAutoComplete"
-                android:padding="10dp" />
-
-
-
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
 
             <TextView
-                android:id="@+id/tvDescripcion"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingTop="15dp"
-                android:text="Descripción"
+                android:id="@+id/tvCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Cliente"
+                android:textColor="@color/colorTextView"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/etDescripcion"
-                android:layout_width="397dp"
+                android:id="@+id/edCliente"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginBottom="15dp"
-                android:inputType="textAutoComplete"
-                android:padding="10dp" />
-
+                android:background="@color/colorGrisInput"
+                android:inputType="text"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
 
 
 
             <TextView
+                android:id="@+id/tvDescripcionServicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Descripción"
+                android:textColor="@color/colorTextView"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/descripcionService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorGrisInput"
+                android:inputType="textAutoComplete"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
+
+
+
+            <TextView
+                android:id="@+id/tvNombreEquipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Nombre Equipo"
+                android:textColor="@color/colorTextView"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/etNombreEquipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorGrisInput"
+                android:inputType="textAutoComplete"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
+
+
+            <TextView
                 android:id="@+id/tvSerialEquipo"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
                 android:text="Serial del equipo"
+                android:textColor="@color/colorTextView"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etSerialEquipo"
-                android:layout_width="397dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginBottom="15dp"
-                android:inputType="textAutoComplete"
-                android:padding="10dp" />
-
+                android:background="@color/colorGrisInput"
+                android:inputType="text"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
 
 
             <TextView
                 android:id="@+id/tvHorometro"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
                 android:text="Horometro"
+                android:textColor="@color/colorTextView"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edHorometro"
-                android:layout_width="397dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginBottom="15dp"
-                android:inputType="textAutoComplete"
-                android:padding="10dp" />
-
-
-            <TextView
-                android:id="@+id/tvKilometraje"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingTop="15dp"
-                android:text="Kilometraje"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etKilometraje"
-                android:layout_width="397dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:inputType="textAutoComplete"
-                android:padding="10dp" />
+                android:background="@color/colorGrisInput"
+                android:inputType="datetime"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
 
 
 
 
             <TextView
-                android:id="@+id/tvNombrePlanta"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingTop="15dp"
-                android:text="Nombre de Planta"
+                android:id="@+id/tvPlanta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Planta"
+                android:textColor="@color/colorTextView"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/tetNombrePlanta"
-                android:layout_width="397dp"
+                android:id="@+id/etPlanta"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginBottom="15dp"
-                android:inputType="textAutoComplete"
-                android:padding="10dp" />
-
+                android:background="@color/colorGrisInput"
+                android:inputType="text"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
 
 
 
             <TextView
                 android:id="@+id/tvFechaEntrada"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingTop="15dp"
-                android:text="Fecha de Entrada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Fecha de entrada"
+                android:textColor="@color/colorTextView"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etFechaEntrada"
-                android:layout_width="397dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginBottom="15dp"
-                android:inputType="textAutoComplete"
-                android:padding="10dp" />
+                android:background="@color/colorGrisInput"
+                android:inputType="date"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
 
 
 
             <TextView
                 android:id="@+id/tvFechaSalida"
-                android:layout_width="141dp"
-                android:layout_height="match_parent"
-                android:paddingLeft="5dp"
-                android:paddingTop="15dp"
-                android:text="Fecha de Salida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Fecha de salida"
+                android:textColor="@color/colorTextView"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edFechaSalida"
-                android:layout_width="397dp"
+                android:id="@+id/etFechaSalida"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_marginBottom="15dp"
-                android:inputType="textAutoComplete"
-                android:padding="10dp" />
+                android:background="@color/colorGrisInput"
+                android:inputType="date"
+                android:paddingTop="10dp"
+                android:textColor="@color/colorTextView" />
+
+
+
+
+            <TextView
+                android:id="@+id/tvHoraEntrada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Hora de entrada"
+                android:textColor="@color/colorTextView"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etHoraEntrada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/colorGrisInput"
+                android:inputType="time"
+                android:paddingTop="10dp"
+                android:textColor="@android:color/black" />
+
+
+
+
+            <TextView
+                android:id="@+id/tvHoraSalida"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:paddingLeft="15dp"
+                android:text="Hora de salida"
+                android:textColor="@color/colorTextView"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edHoraSalida"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/colorGrisInput"
+                android:inputType="time"
+                android:textColor="@android:color/black" />
+
 
 
         </LinearLayout>
