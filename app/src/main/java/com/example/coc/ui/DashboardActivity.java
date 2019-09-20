@@ -1,5 +1,6 @@
 package com.example.coc.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.coc.R;
@@ -12,7 +13,6 @@ import androidx.annotation.NonNull;
 
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -56,16 +56,13 @@ public class DashboardActivity extends AppCompatActivity {
                 .add(R.id.fragmentContainer, new ServicioFragment())
                 .commit();
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NewServiceDialogFragment dialog = new NewServiceDialogFragment();
-                dialog.show(getSupportFragmentManager(), "NewServiceDialogFragment");
-
-            }
-        });
-
 
     }
 
+
+    public void RegisterNewService(View view) {
+
+        Intent intent = new Intent(this, NewServiceActivity.class);
+        startActivity(intent);
+    }
 }
