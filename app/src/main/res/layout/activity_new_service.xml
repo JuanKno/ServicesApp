@@ -70,7 +70,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"/>
 
-                    <EditText android:layout_width="match_parent"
+                    <EditText
+                        android:id="@+id/descripcion"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textAutoComplete"
                         android:layout_marginBottom="15dp"/>
@@ -118,67 +120,6 @@
 
 
 
-                    <TextView
-                        android:text="Fecha de entrada"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-
-
-                    <EditText
-                        android:id="@+id/EditTextEntradaRegisterService"
-                        android:onClick="onClickServicioEntradaDate"
-                        android:focusable="false"
-                        android:clickable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="date"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Fecha de salida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-                    <EditText
-                        android:id="@+id/EditTextSalidaRegisterService"
-                        android:layout_width="match_parent"
-                        android:onClick="onClickServicioSalidaDate"
-                        android:focusable="false"
-                        android:clickable="true"
-                        android:layout_height="wrap_content"
-                        android:inputType="date"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Hora de entrada"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:id="@+id/EditTextHoraEntrada"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="time"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Hora de salida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-/>
-                    <EditText android:id="@+id/EditTextHoraSalida"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="time"
-                        android:layout_marginBottom="15dp"/>
 
                     <Button
                         android:id="@+id/btn_siguiente_one"
@@ -222,13 +163,7 @@
                 tools:context=".ui.NewServiceActivity"
                 android:animateLayoutChanges="true">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Registro de servicio"
-                    android:textSize="28sp"
-                    android:fontFamily="sans-serif-black"/>
+
 
 
                 <LinearLayout
@@ -240,87 +175,22 @@
 
 
                     <TextView
-                        android:text="Nombre del servicio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete"
-                        android:layout_marginBottom="15dp"/>
-
-
-
-                    <TextView
-                        android:text="Descripción"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Nombre del equipo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Serial del equipo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Horometro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:layout_marginBottom="15dp"/>
-
-
-
-                    <TextView
                         android:text="Fecha de entrada"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"/>
 
-
-
                     <EditText
-                        android:onClick="onClickServicioEntradaDate"
+                        android:id="@+id/EditTextEntradaRegisterService"
                         android:focusable="false"
                         android:clickable="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="date"
-                        android:layout_marginBottom="15dp"/>
+                        android:layout_marginBottom="15dp"
+                        android:maxLines="1"/>
+
+
 
 
                     <TextView
@@ -328,14 +198,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"/>
+
                     <EditText
+                        android:id="@+id/EditTextSalidaRegisterService"
                         android:layout_width="match_parent"
-                        android:onClick="onClickServicioSalidaDate"
                         android:focusable="false"
                         android:clickable="true"
                         android:layout_height="wrap_content"
                         android:inputType="date"
-                        android:layout_marginBottom="15dp"/>
+                        android:layout_marginBottom="15dp"
+                        android:maxLines="1"/>
 
 
                     <TextView
@@ -346,6 +218,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
+                        android:id="@+id/EditTextHoraEntrada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="time"
@@ -356,10 +229,9 @@
                         android:text="Hora de salida"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"  />
-
-
-                    <EditText
+                        android:layout_marginTop="8dp"
+                        />
+                    <EditText android:id="@+id/EditTextHoraSalida"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="time"
@@ -376,10 +248,7 @@
 
 
 
-
                 </LinearLayout>
-
-
 
 
 
@@ -411,13 +280,7 @@
                 tools:context=".ui.NewServiceActivity"
                 android:animateLayoutChanges="true">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="Registro de servicio"
-                    android:textSize="28sp"
-                    android:fontFamily="sans-serif-black"/>
+
 
 
                 <LinearLayout
@@ -429,7 +292,7 @@
 
 
                     <TextView
-                        android:text="Nombre del servicio"
+                        android:text="Foto Inicio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"/>
@@ -437,25 +300,13 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete"
+                        android:inputType="textUri"
                         android:layout_marginBottom="15dp"/>
 
 
 
                     <TextView
-                        android:text="Descripción"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Nombre del equipo"
+                        android:text="Foto Proceso"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"/>
@@ -463,12 +314,14 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textAutoComplete"
+                        android:inputType="textUri"
                         android:layout_marginBottom="15dp"/>
 
 
+
+
                     <TextView
-                        android:text="Serial del equipo"
+                        android:text="Foto Fin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"/>
@@ -476,90 +329,17 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text"
+                        android:inputType="textUri"
                         android:layout_marginBottom="15dp"/>
 
-
-                    <TextView
-                        android:text="Horometro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="number"
-                        android:layout_marginBottom="15dp"/>
-
-
-
-                    <TextView
-                        android:text="Fecha de entrada"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-
-
-
-                    <EditText
-                        android:onClick="onClickServicioEntradaDate"
-                        android:focusable="false"
-                        android:clickable="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="date"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Fecha de salida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"/>
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:onClick="onClickServicioSalidaDate"
-                        android:focusable="false"
-                        android:clickable="true"
-                        android:layout_height="wrap_content"
-                        android:inputType="date"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Hora de entrada"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:focusable="false"
-                        android:layout_marginTop="8dp"/>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="time"
-                        android:layout_marginBottom="15dp"/>
-
-
-                    <TextView
-                        android:text="Hora de salida"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        />
-
-                   <EditText android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="time"
-                    android:layout_marginBottom="15dp"/>
 
 
                     <Button
-                        android:id="@+id/btn_siguiente_three"
+                        android:id="@+id/btn_save_service"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_next"
-                        android:text="Siguiente"
+                        android:text="Guardar"
                         android:drawableRight="@drawable/ic_arrow_forward_white_24dp" />
 
 
@@ -572,7 +352,6 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
 
 
 
