@@ -2,15 +2,22 @@ package com.example.coc.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.coc.R;
+import com.example.coc.common.DatePickerFragment;
 
-public class NewServiceActivity extends AppCompatActivity {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class NewServiceActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     EditText nameService;
     EditText descripcion;
@@ -31,24 +38,30 @@ public class NewServiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_service);
 
-        nameService = (EditText) findViewById(R.id.nameService);
-        descripcion = (EditText) findViewById(R.id.descripcion);
-        nameEquipo = (EditText) findViewById(R.id.nameEquipo);
-        serialEquipo = (EditText) findViewById(R.id.serialEquipo);
-        horometro = (EditText) findViewById(R.id.horometro);
-        EditTextEntradaRegisterService = (EditText) findViewById(R.id.EditTextEntradaRegisterService);
-        EditTextSalidaRegisterService = (EditText) findViewById(R.id.EditTextSalidaRegisterService);
-        EditTextHoraEntrada = (EditText) findViewById(R.id.EditTextHoraEntrada);
-        EditTextHoraSalida = (EditText) findViewById(R.id.EditTextHoraSalida);
+        nameService = findViewById(R.id.nameService);
+        descripcion = findViewById(R.id.descripcion);
+        nameEquipo = findViewById(R.id.nameEquipo);
+        serialEquipo = findViewById(R.id.serialEquipo);
+        horometro = findViewById(R.id.horometro);
+        EditTextEntradaRegisterService = findViewById(R.id.EditTextEntradaRegisterService);
+        EditTextSalidaRegisterService = findViewById(R.id.EditTextSalidaRegisterService);
+        EditTextHoraEntrada = findViewById(R.id.EditTextHoraEntrada);
+        EditTextHoraSalida = findViewById(R.id.EditTextHoraSalida);
 
-        CardView1 = (CardView) findViewById(R.id.CardView1);
-        CardView2 = (CardView) findViewById(R.id.CardView2);
-        CardView3 = (CardView) findViewById(R.id.CardView3);
+        CardView1 = findViewById(R.id.CardView1);
+        CardView2 = findViewById(R.id.CardView2);
+        CardView3 = findViewById(R.id.CardView3);
 
 
-        Button btn_siguiente_one = (Button) findViewById(R.id.btn_siguiente_one);
-        Button btn_siguiente_two = (Button) findViewById(R.id.btn_siguiente_two);
-
+        Button btn_siguiente_one = findViewById(R.id.btn_siguiente_one);
+        Button btn_siguiente_two = findViewById(R.id.btn_siguiente_two);
+        EditTextEntradaRegisterService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
 
 
         btn_siguiente_one.setOnClickListener(new View.OnClickListener() {
@@ -68,23 +81,22 @@ public class NewServiceActivity extends AppCompatActivity {
             }
         });
 
-        EditTextEntradaRegisterService.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                datePickerEntrada();
-            }
-        });
-
 
     }
 
 
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int datOfMonth) {
 
-    private void datePickerEntrada() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, datOfMonth);
+        DateFormat dateFormat;
+        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        EditTextEntradaRegisterService.setText(currentDateString);
 
-        getSupportFragmentManager();
     }
-
 
     private void validarCardOne() {
 
