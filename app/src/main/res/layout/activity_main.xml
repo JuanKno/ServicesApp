@@ -58,10 +58,11 @@
         android:layout_width="352dp"
         android:layout_height="61dp"
         android:layout_marginTop="64dp"
-        android:background="@color/colorAzul"
+        android:background="@drawable/bg_button_login"
         android:backgroundTint="@android:color/white"
         android:text="@string/btn_login"
         android:textColor="@color/colorAzul"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
