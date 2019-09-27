@@ -1,23 +1,22 @@
 package com.example.coc.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.DialogFragment;
+        import androidx.appcompat.app.AppCompatActivity;
+        import androidx.cardview.widget.CardView;
 
-import android.app.DatePickerDialog;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
+        import android.app.DatePickerDialog;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.DatePicker;
+        import android.widget.EditText;
 
-import com.example.coc.R;
-import com.example.coc.common.DatePickerFragment;
+        import com.example.coc.R;
+        import com.example.coc.common.DatePickerFragment;
 
-import java.text.DateFormat;
-import java.util.Calendar;
+        import java.text.DateFormat;
+        import java.util.Calendar;
 
-public class NewServiceActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class NewServiceActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText nameService;
     EditText descripcion;
@@ -43,8 +42,14 @@ public class NewServiceActivity extends AppCompatActivity implements DatePickerD
         nameEquipo = findViewById(R.id.nameEquipo);
         serialEquipo = findViewById(R.id.serialEquipo);
         horometro = findViewById(R.id.horometro);
+
         EditTextEntradaRegisterService = findViewById(R.id.EditTextEntradaRegisterService);
+        EditTextEntradaRegisterService.setOnClickListener(this);
+
         EditTextSalidaRegisterService = findViewById(R.id.EditTextSalidaRegisterService);
+        EditTextSalidaRegisterService.setOnClickListener(this);
+
+
         EditTextHoraEntrada = findViewById(R.id.EditTextHoraEntrada);
         EditTextHoraSalida = findViewById(R.id.EditTextHoraSalida);
 
@@ -55,13 +60,6 @@ public class NewServiceActivity extends AppCompatActivity implements DatePickerD
 
         Button btn_siguiente_one = findViewById(R.id.btn_siguiente_one);
         Button btn_siguiente_two = findViewById(R.id.btn_siguiente_two);
-        EditTextEntradaRegisterService.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
-            }
-        });
 
 
         btn_siguiente_one.setOnClickListener(new View.OnClickListener() {
@@ -85,18 +83,37 @@ public class NewServiceActivity extends AppCompatActivity implements DatePickerD
     }
 
 
-    @Override
-    public void onDateSet(DatePicker view, int year, int month, int datOfMonth) {
+    private String twoDigits(int n) {
+        return (n <= 9) ? ("0" + n) : String.valueOf(n);
+    }
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DAY_OF_MONTH, datOfMonth);
-        DateFormat dateFormat;
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
-        EditTextEntradaRegisterService.setText(currentDateString);
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.EditTextEntradaRegisterService:
+                showDatePickerDialog(EditTextEntradaRegisterService);
+                break;
+
+            case R.id.EditTextSalidaRegisterService:
+                showDatePickerDialog(EditTextSalidaRegisterService);
+                break;
+        }
 
     }
+
+
+    private void showDatePickerDialog(final EditText editText) {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                final String selectedDate = twoDigits(day) + "/" + twoDigits(month + 1) + "/" + year;
+                editText.setText(selectedDate);
+            }
+        });
+
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
 
     private void validarCardOne() {
 
@@ -135,4 +152,6 @@ public class NewServiceActivity extends AppCompatActivity implements DatePickerD
             CardView3.setVisibility(View.VISIBLE);
         }
     }
+
+
 }
