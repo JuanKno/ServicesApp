@@ -56,7 +56,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
-                        android:id="@+id/nameService"
+                        android:id="@+id/nombreServicio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textAutoComplete"
@@ -85,7 +85,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
-                        android:id="@+id/nameEquipo"
+                        android:id="@+id/nombreEquipo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textAutoComplete"
@@ -119,14 +119,16 @@
                         android:layout_marginBottom="15dp"/>
 
 
-
-
                     <Button
                         android:id="@+id/btn_siguiente_one"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_next"
-                        android:text="Siguiente"  />
+                        android:layout_height="64dp"
+                        android:background="@drawable/bg_button_next"
+                        android:text="Siguiente"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -180,7 +182,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
-                        android:id="@+id/EditTextEntradaRegisterService"
+                        android:id="@+id/fechaEntrada"
                         android:focusable="false"
                         android:clickable="true"
                         android:layout_width="match_parent"
@@ -199,7 +201,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
-                        android:id="@+id/EditTextSalidaRegisterService"
+                        android:id="@+id/fechaSalida"
                         android:layout_width="match_parent"
                         android:focusable="false"
                         android:clickable="true"
@@ -217,7 +219,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
-                        android:id="@+id/EditTextHoraEntrada"
+                        android:id="@+id/horaEntrada"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="time"
@@ -230,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         />
-                    <EditText android:id="@+id/EditTextHoraSalida"
+                    <EditText android:id="@+id/horaSalida"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="time"
@@ -240,9 +242,13 @@
                     <Button
                         android:id="@+id/btn_siguiente_two"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_next"
-                        android:text="Siguiente" />
+                        android:layout_height="64dp"
+                        android:background="@drawable/bg_button_next"
+                        android:text="Siguiente"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
 
 
@@ -290,12 +296,42 @@
 
 
                     <TextView
+                        android:text="Planta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"/>
+
+                    <EditText
+                        android:id="@+id/plantaId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        android:layout_marginBottom="15dp"/>
+
+
+                    <TextView
+                        android:text="Cliente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"/>
+
+                    <EditText
+                        android:id="@+id/clienteId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        android:layout_marginBottom="15dp"/>
+
+
+
+                    <TextView
                         android:text="Foto Inicio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"/>
 
                     <EditText
+                        android:id="@+id/fotoInicio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textUri"
@@ -310,6 +346,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
+                        android:id="@+id/fotoProceso"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textUri"
@@ -325,6 +362,7 @@
                         android:layout_marginTop="8dp"/>
 
                     <EditText
+                        android:id="@+id/fotoFin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textUri"
@@ -335,9 +373,13 @@
                     <Button
                         android:id="@+id/btn_save_service"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_next"
-                        android:text="Guardar"  />
+                        android:layout_height="64dp"
+                        android:background="@drawable/bg_button_next"
+                        android:text="Guardar"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>

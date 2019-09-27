@@ -1,20 +1,20 @@
 package com.example.coc.ui;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.cardview.widget.CardView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
-        import android.app.DatePickerDialog;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.DatePicker;
-        import android.widget.EditText;
+import android.app.DatePickerDialog;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 
-        import com.example.coc.R;
-        import com.example.coc.common.DatePickerFragment;
+import com.example.coc.R;
+import com.example.coc.common.DatePickerFragment;
 
-        import java.text.DateFormat;
-        import java.util.Calendar;
+import java.text.DateFormat;
+import java.util.Calendar;
 
 public class NewServiceActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,8 +23,8 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
     EditText nameEquipo;
     EditText serialEquipo;
     EditText horometro;
-    EditText EditTextEntradaRegisterService;
-    EditText EditTextSalidaRegisterService;
+    EditText fechaEntrada;
+    EditText fechaSalida;
     EditText EditTextHoraEntrada;
     EditText EditTextHoraSalida;
     CardView CardView1;
@@ -37,21 +37,21 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_service);
 
-        nameService = findViewById(R.id.nameService);
+        nameService = findViewById(R.id.nombreServicio);
         descripcion = findViewById(R.id.descripcion);
-        nameEquipo = findViewById(R.id.nameEquipo);
+        nameEquipo = findViewById(R.id.nombreEquipo);
         serialEquipo = findViewById(R.id.serialEquipo);
         horometro = findViewById(R.id.horometro);
 
-        EditTextEntradaRegisterService = findViewById(R.id.EditTextEntradaRegisterService);
-        EditTextEntradaRegisterService.setOnClickListener(this);
+        fechaEntrada = findViewById(R.id.fechaEntrada);
+        fechaEntrada.setOnClickListener(this);
 
-        EditTextSalidaRegisterService = findViewById(R.id.EditTextSalidaRegisterService);
-        EditTextSalidaRegisterService.setOnClickListener(this);
+        fechaSalida = findViewById(R.id.fechaSalida);
+        fechaSalida.setOnClickListener(this);
 
 
-        EditTextHoraEntrada = findViewById(R.id.EditTextHoraEntrada);
-        EditTextHoraSalida = findViewById(R.id.EditTextHoraSalida);
+        EditTextHoraEntrada = findViewById(R.id.horaEntrada);
+        EditTextHoraSalida = findViewById(R.id.horaSalida);
 
         CardView1 = findViewById(R.id.CardView1);
         CardView2 = findViewById(R.id.CardView2);
@@ -90,12 +90,12 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.EditTextEntradaRegisterService:
-                showDatePickerDialog(EditTextEntradaRegisterService);
+            case R.id.fechaEntrada:
+                showDatePickerDialog(fechaEntrada);
                 break;
 
-            case R.id.EditTextSalidaRegisterService:
-                showDatePickerDialog(EditTextSalidaRegisterService);
+            case R.id.fechaSalida:
+                showDatePickerDialog(fechaSalida);
                 break;
         }
 
@@ -142,7 +142,7 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
         if (EditTextHoraEntrada.getText().toString().isEmpty()) {
             nameEquipo.setError("Debes ingresar la hora inicial del servicio.");
         }
-        if (EditTextEntradaRegisterService.getText().toString().isEmpty()) {
+        if (fechaEntrada.getText().toString().isEmpty()) {
             descripcion.setError("Debes ingresar Fecha de inicial del servicio");
         } else {
 
