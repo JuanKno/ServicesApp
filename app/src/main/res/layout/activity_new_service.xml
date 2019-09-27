@@ -126,8 +126,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_next"
-                        android:text="Siguiente"
-                        android:drawableRight="@drawable/ic_arrow_forward_white_24dp" />
+                        android:text="Siguiente"  />
 
 
                 </LinearLayout>
@@ -243,8 +242,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_next"
-                        android:text="Siguiente"
-                        android:drawableRight="@drawable/ic_arrow_forward_white_24dp" />
+                        android:text="Siguiente" />
 
 
 
@@ -339,8 +337,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/button_next"
-                        android:text="Guardar"
-                        android:drawableRight="@drawable/ic_arrow_forward_white_24dp" />
+                        android:text="Guardar"  />
 
 
                 </LinearLayout>
