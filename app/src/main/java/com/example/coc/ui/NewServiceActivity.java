@@ -26,8 +26,17 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
     EditText horometro;
     EditText fechaEntrada;
     EditText fechaSalida;
-    EditText EditTextHoraEntrada;
-    EditText EditTextHoraSalida;
+    EditText horaEntrada;
+    EditText horaSalida;
+    EditText plantaId;
+    EditText clienteId;
+    EditText fotoInicio;
+    EditText fotoProceso;
+    EditText fotoFin;
+
+
+
+
     CardView CardView1;
     CardView CardView2;
     CardView CardView3;
@@ -43,6 +52,11 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
         nameEquipo = findViewById(R.id.nombreEquipo);
         serialEquipo = findViewById(R.id.serialEquipo);
         horometro = findViewById(R.id.horometro);
+        plantaId = findViewById(R.id.plantaId);
+        clienteId = findViewById(R.id.clienteId);
+        fotoInicio = findViewById(R.id.fotoInicio);
+        fotoProceso = findViewById(R.id.fotoProceso);
+        fotoFin = findViewById(R.id.fotoFin);
 
         fechaEntrada = findViewById(R.id.fechaEntrada);
         fechaEntrada.setOnClickListener(this);
@@ -51,11 +65,11 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
         fechaSalida.setOnClickListener(this);
 
 
-        EditTextHoraEntrada = findViewById(R.id.horaEntrada);
-        EditTextHoraEntrada.setOnClickListener(this);
+        horaEntrada = findViewById(R.id.horaEntrada);
+        horaEntrada.setOnClickListener(this);
 
-        EditTextHoraSalida = findViewById(R.id.horaSalida);
-        EditTextHoraSalida.setOnClickListener(this);
+        horaSalida = findViewById(R.id.horaSalida);
+        horaSalida.setOnClickListener(this);
 
         CardView1 = findViewById(R.id.CardView1);
         CardView2 = findViewById(R.id.CardView2);
@@ -112,11 +126,11 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.horaEntrada:
-                showTimePickerDialog(EditTextHoraEntrada);
+                showTimePickerDialog(horaEntrada);
                 break;
 
             case R.id.horaSalida:
-                showTimePickerDialog(EditTextHoraSalida);
+                showTimePickerDialog(horaSalida);
                 break;
         }
 
@@ -172,7 +186,7 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
     private void validarCardTwo() {
 
-        if (EditTextHoraEntrada.getText().toString().isEmpty()) {
+        if (horaEntrada.getText().toString().isEmpty()) {
             nameEquipo.setError("Debes ingresar la hora inicial del servicio.");
         }
         if (fechaEntrada.getText().toString().isEmpty()) {
