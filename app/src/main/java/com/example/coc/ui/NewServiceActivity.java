@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -63,6 +64,7 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
         Button btn_siguiente_one = findViewById(R.id.btn_siguiente_one);
         Button btn_siguiente_two = findViewById(R.id.btn_siguiente_two);
+        Button btn_save = findViewById(R.id.btn_save_service);
 
 
         btn_siguiente_one.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +81,14 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onClick(View view) {
                 validarCardTwo();
+            }
+        });
+
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(NewServiceActivity.this, "Servicio guardado correctamente.", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
