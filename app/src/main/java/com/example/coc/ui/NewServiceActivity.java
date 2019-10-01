@@ -1,20 +1,20 @@
 package com.example.coc.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.example.coc.R;
 import com.example.coc.common.DatePickerFragment;
-
-import java.text.DateFormat;
-import java.util.Calendar;
+import com.example.coc.common.TimePickerFragment;
 
 public class NewServiceActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,7 +51,10 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
 
         EditTextHoraEntrada = findViewById(R.id.horaEntrada);
+        EditTextHoraEntrada.setOnClickListener(this);
+
         EditTextHoraSalida = findViewById(R.id.horaSalida);
+        EditTextHoraSalida.setOnClickListener(this);
 
         CardView1 = findViewById(R.id.CardView1);
         CardView2 = findViewById(R.id.CardView2);
@@ -97,8 +100,28 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
             case R.id.fechaSalida:
                 showDatePickerDialog(fechaSalida);
                 break;
+
+            case R.id.horaEntrada:
+                showTimePickerDialog(EditTextHoraEntrada);
+                break;
+
+            case R.id.horaSalida:
+                showTimePickerDialog(EditTextHoraSalida);
+                break;
         }
 
+    }
+
+    private void showTimePickerDialog(final EditText editText) {
+        TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                final String selectTime = twoDigits(hour) + ":" + twoDigits(minute);
+                editText.setText(selectTime);
+
+            }
+        });
+        newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
 
