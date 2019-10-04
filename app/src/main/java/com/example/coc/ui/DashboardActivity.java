@@ -1,24 +1,26 @@
 package com.example.coc.ui;
 
-import android.content.Intent;
-import android.os.Bundle;
+        import android.content.Intent;
+        import android.os.Bundle;
 
-import com.example.coc.R;
-import com.example.coc.ServicioFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+        import com.example.coc.R;
+        import com.google.android.material.bottomnavigation.BottomNavigationView;
+        import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.annotation.NonNull;
+        import androidx.appcompat.app.AppCompatActivity;
+        import androidx.annotation.NonNull;
 
-import android.view.MenuItem;
-import android.view.View;
+        import android.os.CountDownTimer;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Toast;
 
 public class DashboardActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
+    int pressBackTwo = 0;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -49,7 +51,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
-        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -64,5 +66,29 @@ public class DashboardActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, NewServiceActivity.class);
         startActivity(intent);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (pressBackTwo == 0) {
+            Toast.makeText(getApplicationContext(), "Presione una vez más para salir de la aplicación.", Toast.LENGTH_SHORT).show();
+            pressBackTwo++;
+        } else {
+            super.onBackPressed();
+        }
+        new CountDownTimer(3000, 1000) {
+
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                pressBackTwo = 0;
+
+            }
+        }.start();
     }
 }

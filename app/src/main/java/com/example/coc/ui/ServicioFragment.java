@@ -1,4 +1,4 @@
-package com.example.coc;
+package com.example.coc.ui;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.coc.R;
 import com.example.coc.data.ServiceViewModel;
 import com.example.coc.retrofit.Response.Servicio;
 
