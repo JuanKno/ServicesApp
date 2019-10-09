@@ -7,34 +7,38 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.coc.R;
+import com.example.coc.common.Constantes;
 import com.example.coc.common.DatePickerFragment;
+import com.example.coc.common.SharedPreferencesManager;
 import com.example.coc.common.TimePickerFragment;
+import com.example.coc.data.ServiceViewModel;
 
 public class NewServiceActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText nameService;
-    EditText descripcion;
-    EditText nameEquipo;
-    EditText serialEquipo;
-    EditText horometro;
-    EditText fechaEntrada;
-    EditText fechaSalida;
-    EditText horaEntrada;
-    EditText horaSalida;
-    EditText plantaId;
-    EditText clienteId;
-    EditText fotoInicio;
-    EditText fotoProceso;
-    EditText fotoFin;
-
-
+    EditText etNombreServicio;
+    EditText etDescripcion;
+    EditText etNameEquipo;
+    EditText etSerialEquipo;
+    EditText etHorometro;
+    EditText etFechaEntrada;
+    EditText etFechaSalida;
+    EditText etHoraEntrada;
+    EditText etHoraSalida;
+    EditText etPlantaId;
+    EditText etClienteId;
+    EditText etFotoInicio;
+    EditText etFotoProceso;
+    EditText etFotoFin;
+    Button btn_save;
+    ImageView ivAvatar;
 
 
     CardView CardView1;
@@ -47,29 +51,37 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_service);
 
-        nameService = findViewById(R.id.nombreServicio);
-        descripcion = findViewById(R.id.descripcion);
-        nameEquipo = findViewById(R.id.nombreEquipo);
-        serialEquipo = findViewById(R.id.serialEquipo);
-        horometro = findViewById(R.id.horometro);
-        plantaId = findViewById(R.id.plantaId);
-        clienteId = findViewById(R.id.clienteId);
-        fotoInicio = findViewById(R.id.fotoInicio);
-        fotoProceso = findViewById(R.id.fotoProceso);
-        fotoFin = findViewById(R.id.fotoFin);
+        etNombreServicio = findViewById(R.id.nombreServicio);
+        etDescripcion = findViewById(R.id.descripcion);
+        etNameEquipo = findViewById(R.id.nombreEquipo);
+        etSerialEquipo = findViewById(R.id.serialEquipo);
+        etHorometro = findViewById(R.id.horometro);
+        etPlantaId = findViewById(R.id.plantaId);
+        etClienteId = findViewById(R.id.clienteId);
+        etFotoInicio = findViewById(R.id.fotoInicio);
+        etFotoProceso = findViewById(R.id.fotoProceso);
+        etFotoFin = findViewById(R.id.fotoFin);
 
-        fechaEntrada = findViewById(R.id.fechaEntrada);
-        fechaEntrada.setOnClickListener(this);
+        etFechaEntrada = findViewById(R.id.fechaEntrada);
+        etFechaEntrada.setOnClickListener(this);
 
-        fechaSalida = findViewById(R.id.fechaSalida);
-        fechaSalida.setOnClickListener(this);
+        etFechaSalida = findViewById(R.id.fechaSalida);
+        etFechaSalida.setOnClickListener(this);
 
 
-        horaEntrada = findViewById(R.id.horaEntrada);
-        horaEntrada.setOnClickListener(this);
+        etHoraEntrada = findViewById(R.id.horaEntrada);
+        etHoraEntrada.setOnClickListener(this);
 
-        horaSalida = findViewById(R.id.horaSalida);
-        horaSalida.setOnClickListener(this);
+        etHoraSalida = findViewById(R.id.horaSalida);
+        etHoraSalida.setOnClickListener(this);
+
+        btn_save = findViewById(R.id.btn_save_service);
+        btn_save.setOnClickListener(this);
+
+
+        //setear la imagen de perfil
+        String fotoInicio = SharedPreferencesManager.getSomeStringValue(Constantes.PREF_PHOTO);
+
 
         CardView1 = findViewById(R.id.CardView1);
         CardView2 = findViewById(R.id.CardView2);
@@ -78,7 +90,6 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
         Button btn_siguiente_one = findViewById(R.id.btn_siguiente_one);
         Button btn_siguiente_two = findViewById(R.id.btn_siguiente_two);
-        Button btn_save = findViewById(R.id.btn_save_service);
 
 
         btn_siguiente_one.setOnClickListener(new View.OnClickListener() {
@@ -98,14 +109,6 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-        btn_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(NewServiceActivity.this, "Servicio guardado correctamente.", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
-
 
     }
 
@@ -116,25 +119,52 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
+
+
         switch (view.getId()) {
             case R.id.fechaEntrada:
-                showDatePickerDialog(fechaEntrada);
+                showDatePickerDialog(etFechaEntrada);
                 break;
 
             case R.id.fechaSalida:
-                showDatePickerDialog(fechaSalida);
+                showDatePickerDialog(etFechaSalida);
                 break;
 
             case R.id.horaEntrada:
-                showTimePickerDialog(horaEntrada);
+                showTimePickerDialog(etHoraEntrada);
                 break;
 
             case R.id.horaSalida:
-                showTimePickerDialog(horaSalida);
+                showTimePickerDialog(etHoraSalida);
+                break;
+
+            case R.id.btn_save_service:
+                String nombreServicio = etNombreServicio.getText().toString();
+                String descripcion = etDescripcion.getText().toString();
+                String nombreEquipo = etNameEquipo.getText().toString();
+                String serialEquipo = etSerialEquipo.getText().toString();
+                String horometro = etHorometro.getText().toString();
+                String fechaEntrada = etFechaEntrada.getText().toString();
+                String fechaSalida = etFechaSalida.getText().toString();
+                String horaEntrada = etHoraEntrada.getText().toString();
+                String horaSalida = etHoraSalida.getText().toString();
+                int plantaId = Integer.parseInt(etPlantaId.getText().toString());
+                int clienteId = Integer.parseInt(etClienteId.getText().toString());
+                String fotoInicio = etFotoInicio.getText().toString();
+                String fotoProceso = etFotoProceso.getText().toString();
+                String fotoFin = etFotoFin.getText().toString();
+
+
+                ServiceViewModel serviceViewModel = ViewModelProviders.of(this).get(ServiceViewModel.class);
+                serviceViewModel.insertService(nombreServicio, descripcion, nombreEquipo, serialEquipo, horometro, fechaEntrada, fechaSalida, horaEntrada, horaSalida, plantaId, clienteId, fotoInicio, fotoProceso, fotoFin);
+
+
+
                 break;
         }
 
     }
+
 
     private void showTimePickerDialog(final EditText editText) {
         TimePickerFragment newFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
@@ -164,14 +194,14 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
     private void validarCardOne() {
 
-        if (nameService.getText().toString().isEmpty()) {
-            nameService.setError("Debes ingresar el nombre del servicio.");
+        if (etNombreServicio.getText().toString().isEmpty()) {
+            etNombreServicio.setError("Debes ingresar el nombre del servicio.");
         }
-        if (descripcion.getText().toString().isEmpty()) {
-            descripcion.setError("Debes ingresar la descripción");
+        if (etDescripcion.getText().toString().isEmpty()) {
+            etDescripcion.setError("Debes ingresar la descripción");
         }
-        if (nameEquipo.getText().toString().isEmpty()) {
-            nameEquipo.setError("Debes ingresar el nombre del equipo.");
+        if (etNameEquipo.getText().toString().isEmpty()) {
+            etNameEquipo.setError("Debes ingresar el nombre del equipo.");
         } else {
 
 
@@ -186,11 +216,11 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
     private void validarCardTwo() {
 
-        if (horaEntrada.getText().toString().isEmpty()) {
-            nameEquipo.setError("Debes ingresar la hora inicial del servicio.");
+        if (etHoraEntrada.getText().toString().isEmpty()) {
+            etHoraEntrada.setError("Debes ingresar la hora inicial del servicio.");
         }
-        if (fechaEntrada.getText().toString().isEmpty()) {
-            descripcion.setError("Debes ingresar Fecha de inicial del servicio");
+        if (etHoraSalida.getText().toString().isEmpty()) {
+            etHoraSalida.setError("Debes ingresar hora de inicial del servicio");
         } else {
 
 

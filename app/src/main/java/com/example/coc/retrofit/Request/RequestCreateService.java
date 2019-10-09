@@ -53,9 +53,22 @@ public class RequestCreateService {
 
     /**
      * No args constructor for use in serialization
-     * 
+     * @param servicio
+     * @param descripcion
+     * @param nameEquipo
+     * @param serialEquipo
+     * @param horometro
+     * @param fechaEntrada
+     * @param fechaSalida
+     * @param horaEntrada
+     * @param nombreServicio
+     * @param plantaId
+     * @param clienteId
+     * @param fotoInicio
+     * @param fotoProceso
+     * @param fotoFin
      */
-    public RequestCreateService() {
+    public RequestCreateService(String servicio, String descripcion, String nameEquipo, String serialEquipo, String horometro, String fechaEntrada, String fechaSalida, String horaEntrada, String nombreServicio, int plantaId, int clienteId, String fotoInicio, String fotoProceso, String fotoFin) {
     }
 
     /**

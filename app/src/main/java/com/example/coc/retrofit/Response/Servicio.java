@@ -12,6 +12,9 @@ public class Servicio {
     @SerializedName("nombreServicio")
     @Expose
     private String nombreServicio;
+    @SerializedName("cliente_id")
+    @Expose
+    private Integer clienteId;
     @SerializedName("descripcion")
     @Expose
     private String descripcion;
@@ -27,6 +30,9 @@ public class Servicio {
     @SerializedName("kilometraje")
     @Expose
     private String kilometraje;
+    @SerializedName("planta_id")
+    @Expose
+    private Integer plantaId;
     @SerializedName("fechaEntrada")
     @Expose
     private String fechaEntrada;
@@ -57,16 +63,18 @@ public class Servicio {
 
     /**
      * No args constructor for use in serialization
-     * 
+     *
+     * @param servicio
      */
-    public Servicio() {
+    public Servicio(Servicio servicio) {
     }
 
     /**
-     * 
+     *
      * @param fotoProceso
      * @param nombreEquipo
      * @param horometro
+     * @param plantaId
      * @param descripcion
      * @param nombreCliente
      * @param kilometraje
@@ -76,20 +84,23 @@ public class Servicio {
      * @param id
      * @param fechaEntrada
      * @param horaEntrada
-     * @param nombreServicio
      * @param horaSalida
+     * @param nombreServicio
+     * @param clienteId
      * @param fotoInicio
      * @param serialEquipo
      */
-    public Servicio(Integer id, String nombreServicio, String descripcion, String nombreEquipo, String serialEquipo, String horometro, String kilometraje, String fechaEntrada, String fechaSalida, String horaEntrada, String horaSalida, String fotoInicio, String fotoProceso, String fotoFin, String nombreCliente, String nombrePlanta) {
+    public Servicio(Integer id, String nombreServicio, Integer clienteId, String descripcion, String nombreEquipo, String serialEquipo, String horometro, String kilometraje, Integer plantaId, String fechaEntrada, String fechaSalida, String horaEntrada, String horaSalida, String fotoInicio, String fotoProceso, String fotoFin, String nombreCliente, String nombrePlanta) {
         super();
         this.id = id;
         this.nombreServicio = nombreServicio;
+        this.clienteId = clienteId;
         this.descripcion = descripcion;
         this.nombreEquipo = nombreEquipo;
         this.serialEquipo = serialEquipo;
         this.horometro = horometro;
         this.kilometraje = kilometraje;
+        this.plantaId = plantaId;
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.horaEntrada = horaEntrada;
@@ -115,6 +126,14 @@ public class Servicio {
 
     public void setNombreServicio(String nombreServicio) {
         this.nombreServicio = nombreServicio;
+    }
+
+    public Integer getClienteId() {
+        return clienteId;
+    }
+
+    public void setClienteId(Integer clienteId) {
+        this.clienteId = clienteId;
     }
 
     public String getDescripcion() {
@@ -155,6 +174,14 @@ public class Servicio {
 
     public void setKilometraje(String kilometraje) {
         this.kilometraje = kilometraje;
+    }
+
+    public Integer getPlantaId() {
+        return plantaId;
+    }
+
+    public void setPlantaId(Integer plantaId) {
+        this.plantaId = plantaId;
     }
 
     public String getFechaEntrada() {
