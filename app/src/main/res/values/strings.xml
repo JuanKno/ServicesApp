@@ -17,4 +17,7 @@
     <string name="text_view_toolbar_home">Inicio</string>
     <string name="text_view_title_home">Inicio</string>
     <string name="new_service_name">Ingrese el nombre del servicio</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -27,4 +27,13 @@ public class ServiceViewModel extends AndroidViewModel {
     public LiveData<List<Servicio>> getServicios() {
         return servicios;
     }
+
+
+    public void insertService(String nombreServicio, String descripcion, String nombreEquipo, String serialEquipo, String horometro, String fechaEntrada, String fechaSalida,
+                              String horaEntrada, String horaSalida, int plantaId, int clienteId, String fotoInicio, String fotoProceso, String fotoFin) {
+
+
+        serviceRepository.createService(nombreServicio, descripcion, nombreEquipo, serialEquipo, horometro, fechaEntrada, fechaSalida, horaEntrada, horaSalida, plantaId, clienteId, fotoInicio, fotoProceso, fotoFin);
+    }
+
 }
