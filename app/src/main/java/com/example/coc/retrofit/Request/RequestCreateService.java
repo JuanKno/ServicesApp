@@ -3,6 +3,7 @@ package com.example.coc.retrofit.Request;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -37,6 +38,9 @@ public class RequestCreateService {
     private List<String> fechaSalida = new ArrayList<String>();
     @SerializedName("horaEntrada")
     @Expose
+    private List<String> horaSalida = new ArrayList<String>();
+    @SerializedName("horaSalida")
+    @Expose
     private List<String> horaEntrada = new ArrayList<String>();
     @SerializedName("fotoInicio")
     @Expose
@@ -53,7 +57,7 @@ public class RequestCreateService {
 
     /**
      * No args constructor for use in serialization
-     * @param servicio
+     *  @param servicio
      * @param descripcion
      * @param nameEquipo
      * @param serialEquipo
@@ -61,23 +65,23 @@ public class RequestCreateService {
      * @param fechaEntrada
      * @param fechaSalida
      * @param horaEntrada
-     * @param nombreServicio
+     * @param horaSalida
      * @param plantaId
      * @param clienteId
      * @param fotoInicio
      * @param fotoProceso
      * @param fotoFin
      */
-    public RequestCreateService(String servicio, String descripcion, String nameEquipo, String serialEquipo, String horometro, String fechaEntrada, String fechaSalida, String horaEntrada, String nombreServicio, int plantaId, int clienteId, String fotoInicio, String fotoProceso, String fotoFin) {
+    public RequestCreateService(String servicio, String descripcion, String nameEquipo, String serialEquipo, String horometro, String fechaEntrada, String fechaSalida, String horaEntrada, String horaSalida, int plantaId, int clienteId, String fotoInicio, String fotoProceso, String fotoFin) {
     }
 
     /**
-     * 
      * @param fotoFin
      * @param fechaEntrada
      * @param fotoProceso
      * @param nombreEquipo
      * @param horaEntrada
+     * @param horaSalida
      * @param nombreServicio
      * @param horometro
      * @param plantaId
@@ -88,7 +92,7 @@ public class RequestCreateService {
      * @param fechaSalida
      * @param serialEquipo
      */
-    public RequestCreateService(List<String> nombreServicio, List<Integer> clienteId, List<String> nombreEquipo, List<String> serialEquipo, List<String> horometro, List<String> kilometraje, List<Integer> plantaId, List<String> fechaEntrada, List<String> fechaSalida, List<String> horaEntrada, List<String> fotoInicio, List<String> fotoProceso, List<String> fotoFin, List<String> descripcion) {
+    public RequestCreateService(List<String> nombreServicio, List<Integer> clienteId, List<String> nombreEquipo, List<String> serialEquipo, List<String> horometro, List<String> kilometraje, List<Integer> plantaId, List<String> fechaEntrada, List<String> fechaSalida, List<String> horaEntrada, List<String> horaSalida, List<String> fotoInicio, List<String> fotoProceso, List<String> fotoFin, List<String> descripcion) {
         super();
         this.nombreServicio = nombreServicio;
         this.clienteId = clienteId;
@@ -100,6 +104,7 @@ public class RequestCreateService {
         this.fechaEntrada = fechaEntrada;
         this.fechaSalida = fechaSalida;
         this.horaEntrada = horaEntrada;
+        this.horaEntrada = horaSalida;
         this.fotoInicio = fotoInicio;
         this.fotoProceso = fotoProceso;
         this.fotoFin = fotoFin;
@@ -185,6 +190,16 @@ public class RequestCreateService {
     public void setHoraEntrada(List<String> horaEntrada) {
         this.horaEntrada = horaEntrada;
     }
+
+
+    public List<String> getHoraSalida() {
+        return horaSalida;
+    }
+
+    public void setHoraSalida(List<String> horaSalida) {
+        this.horaSalida = horaSalida;
+    }
+
 
     public List<String> getFotoInicio() {
         return fotoInicio;

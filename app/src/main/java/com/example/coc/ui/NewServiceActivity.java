@@ -159,7 +159,6 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
                 serviceViewModel.insertService(nombreServicio, descripcion, nombreEquipo, serialEquipo, horometro, fechaEntrada, fechaSalida, horaEntrada, horaSalida, plantaId, clienteId, fotoInicio, fotoProceso, fotoFin);
 
 
-
                 break;
         }
 
@@ -218,9 +217,6 @@ public class NewServiceActivity extends AppCompatActivity implements View.OnClic
 
         if (etHoraEntrada.getText().toString().isEmpty()) {
             etHoraEntrada.setError("Debes ingresar la hora inicial del servicio.");
-        }
-        if (etHoraSalida.getText().toString().isEmpty()) {
-            etHoraSalida.setError("Debes ingresar hora de inicial del servicio");
         } else {
 
 

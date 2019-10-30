@@ -71,8 +71,8 @@ public class ServiceRepository {
     public void createService(String nombreServicio, String descripcion, String nombreEquipo, String serialEquipo, String horometro, String fechaEntrada, String fechaSalida,
                               String horaEntrada, String horaSalida, int plantaId, int clienteId, String fotoInicio, String fotoProceso, String fotoFin) {
 
-        RequestCreateService request = new RequestCreateService(nombreServicio, descripcion, nombreEquipo, serialEquipo, horometro, fechaEntrada, fechaSalida, horaEntrada, horaSalida, plantaId, clienteId, fotoInicio, fotoProceso, fotoFin);
-        Call<Servicio> call = authApiService.createService(request);
+        RequestCreateService requestCreateService = new RequestCreateService(nombreServicio, descripcion, nombreEquipo, serialEquipo, horometro, fechaEntrada, fechaSalida, horaEntrada, horaSalida, plantaId, clienteId, fotoInicio, fotoProceso, fotoFin);
+        Call<Servicio> call = authApiService.createService(requestCreateService);
 
         call.enqueue(new Callback<Servicio>() {
             @Override
@@ -93,6 +93,7 @@ public class ServiceRepository {
 
                 } else {
                     Toast.makeText(MyApp.geContext(), "Ha ocurrido un error, intentelo nuevamente.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyApp.geContext(), response.message(), Toast.LENGTH_SHORT).show();
                 }
 
             }
