@@ -63,32 +63,53 @@ public class Servicio {
 
     /**
      * No args constructor for use in serialization
-     *
-     * @param servicio
+     * 
      */
-    public Servicio(Servicio servicio) {
+    public Servicio() {
+    }
+
+
+    public Servicio(Servicio nuevoServicio) {
+        this.id = nuevoServicio.getId();
+        this.nombreServicio = nuevoServicio.getNombreServicio();
+        this.clienteId = nuevoServicio.getClienteId();
+        this.plantaId = nuevoServicio.getPlantaId();
+        this.descripcion = nuevoServicio.getDescripcion();
+        this.fechaEntrada = nuevoServicio.getFechaEntrada();
+        this.fechaSalida = nuevoServicio.getFechaSalida();
+        this.horaEntrada = nuevoServicio.getHoraEntrada();
+        this.horaSalida = nuevoServicio.getHoraSalida();
+        this.nombreEquipo = nuevoServicio.getNombreEquipo();
+        this.serialEquipo = nuevoServicio.getSerialEquipo();
+        this.horometro = nuevoServicio.getHorometro();
+        this.kilometraje = nuevoServicio.getKilometraje();
+        this.fotoInicio = nuevoServicio.getFotoInicio();
+        this.fotoProceso = nuevoServicio.getFotoProceso();
+        this.fotoFin = nuevoServicio.getFotoFin();
+
+
     }
 
     /**
-     *
-     * @param fotoProceso
-     * @param nombreEquipo
-     * @param horometro
-     * @param plantaId
+     * 
      * @param descripcion
-     * @param nombreCliente
-     * @param kilometraje
-     * @param fechaSalida
-     * @param nombrePlanta
-     * @param fotoFin
-     * @param id
-     * @param fechaEntrada
      * @param horaEntrada
+     * @param fotoProceso
+     * @param nombrePlanta
      * @param horaSalida
      * @param nombreServicio
      * @param clienteId
+     * @param nombreCliente
+     * @param kilometraje
      * @param fotoInicio
+     * @param nombreEquipo
+     * @param fechaSalida
+     * @param fechaEntrada
+     * @param horometro
+     * @param id
+     * @param fotoFin
      * @param serialEquipo
+     * @param plantaId
      */
     public Servicio(Integer id, String nombreServicio, Integer clienteId, String descripcion, String nombreEquipo, String serialEquipo, String horometro, String kilometraje, Integer plantaId, String fechaEntrada, String fechaSalida, String horaEntrada, String horaSalida, String fotoInicio, String fotoProceso, String fotoFin, String nombreCliente, String nombrePlanta) {
         super();

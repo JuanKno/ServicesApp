@@ -1,9 +1,7 @@
 package com.example.coc.data;
 
-import android.app.Service;
 import android.widget.Toast;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.coc.common.MyApp;
@@ -91,9 +89,10 @@ public class ServiceRepository {
                     allServices.setValue(listaClonada);
 
 
+
                 } else {
                     Toast.makeText(MyApp.geContext(), "Ha ocurrido un error, intentelo nuevamente.", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(MyApp.geContext(), response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyApp.geContext(), (CharSequence) response.body(), Toast.LENGTH_SHORT).show();
                 }
 
             }

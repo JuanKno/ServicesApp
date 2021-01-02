@@ -1,19 +1,19 @@
 package com.example.coc.ui;
 
-        import android.content.Intent;
-        import android.os.Bundle;
+import android.content.Intent;
+import android.os.Bundle;
 
-        import com.example.coc.R;
-        import com.google.android.material.bottomnavigation.BottomNavigationView;
-        import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.coc.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 
-        import android.os.CountDownTimer;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.Toast;
+import android.os.CountDownTimer;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class DashboardActivity extends AppCompatActivity {
 
